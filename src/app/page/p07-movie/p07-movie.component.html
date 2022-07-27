@@ -1,0 +1,26 @@
+<app-header></app-header>
+<hr>
+<form [formGroup]="form">
+    <div class="video-area">
+        <div>
+            <p>自分の映像</p>
+            <video id="myVideo" autoplay></video>
+        </div>
+        <div>
+            <p>相手の映像</p>
+            <video id="otherVideo" autoplay></video>
+        </div>
+    </div>
+    <div>
+        <label><input type="radio" formControlName="media" value="camera">カメラ</label>
+        <label><input type="radio" formControlName="media" value="window">ウィンドウ</label><br>
+        <label><input type="radio" formControlName="cameraMode" value="front">フロントカメラ</label>
+        <label><input type="radio" formControlName="cameraMode" value="rear">リアカメラ</label><br>
+        <input type="text" formControlName="room"><button type="button" (click)="connectSocket()">接続</button><br>
+    </div>
+    <div>
+        <ul id="messageList"></ul>
+    </div>
+</form>
+<hr>
+<app-footer></app-footer>

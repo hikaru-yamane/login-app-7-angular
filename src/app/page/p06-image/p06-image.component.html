@@ -1,0 +1,11 @@
+<app-header></app-header>
+<hr>
+<div>
+    画像:<input type="file" id="image" accept="image/*" (change)="display($event)">
+    <button type="button" (click)="register()">登録</button>
+</div>
+<ng-container *ngIf="imageSrc">
+    <div><img [src]="imageSrc" alt="画像"></div>
+</ng-container>
+<hr>
+<app-footer></app-footer>

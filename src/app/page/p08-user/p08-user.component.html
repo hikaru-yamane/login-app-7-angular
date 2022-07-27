@@ -1,0 +1,32 @@
+<app-header></app-header>
+<hr>
+<form [formGroup]="form">
+    <div>ユーザ登録</div>
+    <div><label>名前<input type="text" formControlName="name"></label></div>
+    <div><label>メールアドレス<input type="text" formControlName="email"></label></div>
+    <div><label>パスワード<input type="text" formControlName="password"></label></div>
+    <ul class="error-message" *ngIf="
+        (form.controls['name'].dirty && form.controls['name'].invalid) || 
+        (form.controls['email'].dirty && form.controls['email'].invalid) || 
+        (form.controls['password'].dirty && form.controls['password'].invalid) || 
+        (form.dirty && form.errors?.['customCrossError'])
+    ">
+        <ng-container *ngIf="form.controls['name'].dirty">
+            <li *ngIf="form.controls['name'].errors?.['required']">名前を入力してください。</li>
+        </ng-container>
+        <ng-container *ngIf="form.controls['email'].dirty">
+            <li *ngIf="form.controls['email'].errors?.['required']">メールアドレスを入力してください。</li>
+            <li *ngIf="form.controls['email'].errors?.['email']">メールアドレスの形式で入力してください。</li>
+        </ng-container>
+        <ng-container *ngIf="form.controls['password'].dirty">
+            <li *ngIf="form.controls['password'].errors?.['required']">パスワードを入力してください。</li>
+            <li *ngIf="form.controls['password'].errors?.['minlength']">パスワードは8文字以上で入力してください。</li>
+        </ng-container>
+        <ng-container *ngIf="form.errors?.['customCrossError']">
+            <li>名前とメールアドレスは合計2-20文字で入力してください。（相関チェックのお試し実装）</li>
+        </ng-container>
+    </ul>
+    <div><button type="button" (click)="register()">登録</button></div>
+</form>
+<hr>
+<app-footer></app-footer>

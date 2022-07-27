@@ -1,0 +1,13 @@
+<app-header></app-header>
+<hr>
+<ng-container *ngIf="isAdmin">
+    <div><button type="button" class="link-style-btn" (click)="goUser()">ユーザ登録</button></div>
+</ng-container>
+<div><button type="button" class="link-style-btn" (click)="goTime()">勤怠管理</button></div>
+<div><button type="button" class="link-style-btn" (click)="goForum()">社員交流掲示板</button></div>
+<div><button type="button" class="link-style-btn" (click)="goImage()">年末調整</button></div>
+<div><button type="button" class="link-style-btn" (click)="goMovie()">リモート会議</button></div>
+<div><button type="button" class="disabled-link-style-btn">勤務表</button></div>
+<div><button type="button" class="disabled-link-style-btn">セキュリティ研修</button></div>
+<hr>
+<app-footer></app-footer>

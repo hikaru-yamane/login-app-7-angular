@@ -1,0 +1,8 @@
+<app-header></app-header>
+<hr>
+<ng-container *ngIf="result.imageSrc">
+    <div><img [src]="result.imageSrc" alt="画像"></div>
+</ng-container>
+<div>{{result.message}}</div>
+<hr>
+<app-footer></app-footer>

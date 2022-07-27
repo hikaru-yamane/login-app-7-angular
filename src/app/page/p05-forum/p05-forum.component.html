@@ -1,0 +1,17 @@
+<app-header></app-header>
+<hr>
+<form [formGroup]="form">
+    <div>
+        <input type="text" formControlName="room">
+        <button type="button" (click)="connect()">接続</button>
+    </div>
+    <div>
+        <input type="text" formControlName="message">
+        <button type="button" (click)="send()">送信</button>
+    </div>
+    <div>
+        <ul id="messageList"></ul>
+    </div>
+</form>
+<hr>
+<app-footer></app-footer>

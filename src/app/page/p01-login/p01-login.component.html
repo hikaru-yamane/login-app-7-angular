@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+    <div><label>メールアドレス<input type="text" formControlName="email"></label></div>
+    <div><label>パスワード<input type="password" formControlName="password" autocomplete="off"></label></div>
+    <ul class="error-message" *ngIf="
+        (form.controls['email'].dirty && form.controls['email'].invalid) || 
+        (form.controls['password'].dirty && form.controls['password'].invalid) || 
+        authErrFlg
+    ">
+        <ng-container *ngIf="form.controls['email'].dirty">
+            <li *ngIf="form.controls['email'].errors?.['required']">メールアドレスを入力してください。</li>
+            <li *ngIf="form.controls['email'].errors?.['email']">メールアドレスの形式で入力してください。</li>
+        </ng-container>
+        <ng-container *ngIf="form.controls['password'].dirty">
+            <li *ngIf="form.controls['password'].errors?.['required']">パスワードを入力してください。</li>
+            <li *ngIf="form.controls['password'].errors?.['minlength']">パスワードは8文字以上で入力してください。</li>
+        </ng-container>
+        <ng-container *ngIf="authErrFlg">
+            <li>メールアドレスまたはパスワードに誤りがあります。</li>
+        </ng-container>
+    </ul>
+    <div>
+        <button type="button" (click)="login()">ログイン</button>
+        <button type="button" (click)="loginAsGuest()">ログイン（ゲスト）</button>
+        <button type="button" (click)="loginAsAdmin()">ログイン（管理者）</button>
+    </div>
+    </form>
+    
